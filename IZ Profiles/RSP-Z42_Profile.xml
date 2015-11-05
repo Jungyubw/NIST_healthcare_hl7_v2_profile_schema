@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="28c0d805-9607-4ead-b81f-68b9f57e4f3a" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="RSP_K11" OrgName="NIST" Version="20150918-1"/>
+<ConformanceProfile ID="28c0d805-9607-4ead-b81f-68b9f57e4f3a" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="Z42 Message profile" OrgName="NIST" Version="1.1.Z42" Date="20151104" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4" Type="RSP" Event="K11" StructID="RSP_K11" Description="Segment pattern response">
+		<Message ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4" Type="RSP" Event="K11" StructID="RSP_K11" Description="Z42: Return Evaluated History and Forecast" Identifier="Z42" Name="Return Evaluated History and Forecast">
 			<Segment Ref="MSH_IZ 1_5_Z42" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_IZ_V_5_RSP_Z32_146" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>
@@ -339,8 +339,8 @@
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 			<Component Name="Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
@@ -401,8 +401,8 @@
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
-			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 		</Datatype>
 		<Datatype ID="TQ" Name="TQ" Description="Timing Quantity">
 			<Component Name="Quantity" Usage="O" Datatype="CQ_ST" MinLength="1" MaxLength="267"/>

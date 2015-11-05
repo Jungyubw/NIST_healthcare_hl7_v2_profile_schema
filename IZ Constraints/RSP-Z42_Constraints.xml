@@ -67,19 +67,19 @@
                 </Predicate>
             </ByID>
             <ByID ID="ERL_IZ">
-                <Predicate ID="[ERL_IZ]4[1]" Target="4[1]" TrueUsage="R" FalseUsage="RE">
+                <Predicate ID="[ERL_IZ]3[1]" Target="3[1]" TrueUsage="R" FalseUsage="RE">
                     <Description>If ERL.4 (Field Repetition) is valued.</Description>
                     <Condition>
                         <Presence Path="4[1]"/>
                     </Condition>
                 </Predicate>
-                <Predicate ID="[ERL_IZ]5[1]" Target="5[1]" TrueUsage="R" FalseUsage="RE">
+                <Predicate ID="[ERL_IZ]4[1]" Target="4[1]" TrueUsage="R" FalseUsage="RE">
                     <Description>If ERL.5 (Component Number) is valued.</Description>
                     <Condition>
                         <Presence Path="5[1]"/>
                     </Condition>
                 </Predicate>
-                <Predicate ID="[ERL_IZ]6[1]" Target="6[1]" TrueUsage="R" FalseUsage="RE">
+                <Predicate ID="[ERL_IZ]5[1]" Target="5[1]" TrueUsage="R" FalseUsage="RE">
                     <Description>If ERL.6 (Sub-Component Number) is valued.</Description>
                     <Condition>
                         <Presence Path="6[1]"/>
@@ -535,14 +535,6 @@
             </ByID>
         </Segment>
         <Group>
-            <ByName Name="RSP_K11.IZ_HISTORY_FORECAST.OBSERVATION">
-                <Constraint ID="IZ-20" Target="1[1].1[1]">
-                    <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>
-                    <Assertion>
-                        <SetID Path="1[1].1[1]"/>
-                    </Assertion>
-                </Constraint>
-            </ByName>
             <ByID ID="e13dfbab-8832-4c3f-bfa5-0e9c18e644c4">
                 <Constraint ID="IZ-20" Target="8[1].4[1].1[1]">
                     <Description>The Value of OBX-1 (Set ID-OBX) SHALL be valued sequentially starting with the value "1" within a message.</Description>

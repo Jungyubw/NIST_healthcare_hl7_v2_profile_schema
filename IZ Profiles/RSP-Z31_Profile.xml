@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2015 rel. 3 (x64) (http://www.altova.com) by ww (NIST) -->
-<ConformanceProfile ID="aa3a45ab-4921-47dd-8ed1-e0f14f2c8f00" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<MetaData Name="RSP_K11" OrgName="NIST" Version="20150918-1"/>
+<ConformanceProfile ID="aa3a45ab-4921-47dd-8ed1-e0f14f2c8f00" Type="Constrainable" HL7Version="2.5.1" xsi:noNamespaceSchemaLocation="../Schema/Profile.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<MetaData Name="Z31 Message profile" OrgName="NIST" Version="1.1.Z31" Date="20151104" SpecificationName="Implementation Guide for Immunization Messaging, Release 1.5 October 1 2014"/>
 	<Encodings>
 		<Encoding>ER7</Encoding>
 		<Encoding>XML</Encoding>
 	</Encodings>
 	<Messages>
-		<Message ID="2c1dc85c-4d4f-48ea-948a-835c1dc6436a" Type="RSP" Event="K11" StructID="RSP_K11" Description="Segment pattern response">
+		<Message ID="2c1dc85c-4d4f-48ea-948a-835c1dc6436a" Type="RSP" Event="K11" StructID="RSP_K11" Description="Z31: Return a List of Candidates" Identifier="Z31" Name="Return a List of Candidates">
 			<Segment Ref="MSH_IZ31" Usage="R" Min="1" Max="1"/>
 			<Segment Ref="SFT_IZ_V5_RSP_Z32_146" Usage="X" Min="0" Max="*"/>
 			<Segment Ref="MSA_IZ1_5" Usage="R" Min="1" Max="1"/>
@@ -263,8 +263,8 @@
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true"/>
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 			<Component Name="Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Alternate Coding System Version ID" Usage="O" Datatype="ST" MinLength="1" MaxLength="10"/>
 			<Component Name="Original Text" Usage="O" Datatype="ST" MinLength="1" MaxLength="199"/>
@@ -339,8 +339,8 @@
 			<Component Name="Text" Usage="RE" Datatype="ST" MinLength="1" MaxLength="999"/>
 			<Component Name="Name of Coding System" Usage="R" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
 			<Component Name="Alternate Identifier" Usage="O" Datatype="ST" MinLength="1" MaxLength="50"/>
-			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999"/>
-			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R"/>
+			<Component Name="Alternate Text" Usage="C" Datatype="ST" MinLength="1" MaxLength="999" Hide="true" />
+			<Component Name="Name of Alternate Coding System" Usage="C" Datatype="ID" MinLength="1" MaxLength="20" Binding="HL70396_IZ" BindingStrength="R" Hide="true"/>
 		</Datatype>
 		<Datatype ID="XPN_IZ_ST" Name="XPN" Description="Extended Person Name">
 			<Component Name="Family Name" Usage="O" Datatype="FN" MinLength="1" MaxLength="194"/>
