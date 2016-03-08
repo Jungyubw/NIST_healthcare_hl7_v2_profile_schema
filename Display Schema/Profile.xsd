@@ -346,27 +346,7 @@
 	<xs:complexType name="ConformanceProfileType">
 		<xs:sequence>
 			<xs:element name="MetaData" type="MetaDataType"
-				minOccurs="0" maxOccurs="1" />
-			<xs:element name="Encodings" minOccurs="0" maxOccurs="1">
-				<xs:complexType>
-					<xs:sequence>
-						<xs:element name="Encoding" minOccurs="1"
-							maxOccurs="unbounded">
-							<xs:simpleType>
-								<xs:union memberTypes="xs:NMTOKEN">
-									<xs:simpleType>
-										<xs:restriction
-											base="xs:NMTOKEN">
-											<xs:enumeration value="ER7" />
-											<xs:enumeration value="XML" />
-										</xs:restriction>
-									</xs:simpleType>
-								</xs:union>
-							</xs:simpleType>
-						</xs:element>
-					</xs:sequence>
-				</xs:complexType>
-			</xs:element>
+				minOccurs="0" maxOccurs="1" />
 			<xs:element name="Message" minOccurs="1" maxOccurs="1"
 				type="MessageType">
 			</xs:element>
