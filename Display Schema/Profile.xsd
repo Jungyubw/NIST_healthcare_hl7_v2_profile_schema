@@ -9,9 +9,7 @@
 		========================= Root Element Definition ======================================= 
 		============================================================================================================= -->
 
-	<xs:element name="ConformanceProfile" type="ConformanceProfileType">
-		
-	</xs:element>
+	<xs:element name="ConformanceProfile" type="ConformanceProfileType"> </xs:element>
 
 	<!-- ============================================================================================================= 
 		========================= Attribute Group Definitions ======================================= 
@@ -46,8 +44,8 @@
 	</xs:attributeGroup>
 
 	<xs:attributeGroup name="DataElementProperties">
-		<xs:attribute name="Name" type="NonEmptyString" use="required" />
-		<xs:attribute name="Usage" type="UsageType" use="required" />
+		<xs:attribute name="Name" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Usage" type="UsageType" use="required"/>
 		<xs:attribute name="Datatype" type="NonEmptyString" use="required">
 			<xs:annotation>
 				<xs:documentation>The datatype of the data element.
@@ -60,25 +58,21 @@
 					content of the element.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="MaxLength" type="IntegerOrStar" use="optional"
-			default="*">
+		<xs:attribute name="MaxLength" type="IntegerOrStar" use="optional" default="*">
 			<xs:annotation>
 				<xs:documentation>Identifies the maximum allowed length for the
 					content of the element.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="ConfLength" type="ConfLengthType"
-			use="optional">
+		<xs:attribute name="ConfLength" type="ConfLengthType" use="optional">
 			<xs:annotation>
 				<xs:documentation>The minimum length an application must be able to
 					handle.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Binding" type="NonEmptyString" use="optional" />
-		<xs:attribute name="BindingStrength" type="BindingStrengthType"
-			use="optional" />
-		<xs:attribute name="BindingLocation" type="BindingLocationType"
-			use="optional" />
+		<xs:attribute name="Binding" type="NonEmptyString" use="optional"/>
+		<xs:attribute name="BindingStrength" type="BindingStrengthType" use="optional"/>
+		<xs:attribute name="BindingLocation" type="BindingLocationType" use="optional"/>
 	</xs:attributeGroup>
 
 	<!-- ============================================================================================================= 
@@ -87,19 +81,19 @@
 
 	<xs:simpleType name="PositiveInteger">
 		<xs:restriction base="xs:integer">
-			<xs:pattern value="[0-9]+" />
+			<xs:pattern value="[0-9]+"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="IntegerOrStar">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="\d+|\*" />
+			<xs:pattern value="\d+|\*"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="NonEmptyString">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[\s]*[\S].*" />
+			<xs:pattern value="[\s]*[\S].*"/>
 			<!-- \S is the negation of \s -->
 		</xs:restriction>
 	</xs:simpleType>
@@ -119,57 +113,57 @@
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="R" />
-			<xs:enumeration value="RE" />
-			<xs:enumeration value="O" />
-			<xs:enumeration value="C" />
-			<xs:enumeration value="X" />
+			<xs:enumeration value="R"/>
+			<xs:enumeration value="RE"/>
+			<xs:enumeration value="O"/>
+			<xs:enumeration value="C"/>
+			<xs:enumeration value="X"/>
 			<!-- #FIXME# Not sure if we need these -->
-			<xs:enumeration value="B" />
-			<xs:enumeration value="W" />
-			<xs:enumeration value="CE" />
+			<xs:enumeration value="B"/>
+			<xs:enumeration value="W"/>
+			<xs:enumeration value="CE"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="MsgStructIDType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="[A-Z0-9]{3}(_[A-Z0-9]{3})?" />
+			<xs:pattern value="[A-Z0-9]{3}(_[A-Z0-9]{3})?"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="ConfLengthType">
 		<xs:restriction base="NonEmptyString">
-			<xs:pattern value="\d*[#=]{0,1}" />
+			<xs:pattern value="\d*[#=]{0,1}"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="DatatypeNameType">
 		<xs:restriction base="NonEmptyString">
 			<!-- <xs:pattern value="-|[a-zA-Z0-9]+"></xs:pattern> -->
-			<xs:pattern value="-|([a-zA-Z0-9]+(_[a-zA-Z0-9]+)?)" />
+			<xs:pattern value="-|([a-zA-Z0-9]+(_[a-zA-Z0-9]+)?)"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="SegmentNameType">
 		<xs:restriction base="NonEmptyString">
-			<xs:pattern value="[A-Z]{2}[0-9]{1}" />
+			<xs:pattern value="[A-Z]{2}[0-9]{1}"/>
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="BindingStrengthType">
 		<xs:restriction base="xs:string">
-			<xs:enumeration value="R" />
+			<xs:enumeration value="R"/>
 			<!-- Required -->
-			<xs:enumeration value="S" />
+			<xs:enumeration value="S"/>
 			<!-- Suggested -->
-			<xs:enumeration value="U" />
+			<xs:enumeration value="U"/>
 			<!-- Undermined -->
 		</xs:restriction>
 	</xs:simpleType>
 
 	<xs:simpleType name="BindingLocationType">
 		<xs:restriction base="xs:string">
-			<xs:pattern value="\d+|(\d+:\d+)" />
+			<xs:pattern value="\d+|(\d+:\d+)"/>
 		</xs:restriction>
 	</xs:simpleType>
 
@@ -179,65 +173,54 @@
 
 	<xs:complexType name="DynamicMappingType">
 		<xs:sequence>
-			<xs:element name="Case" minOccurs="1" maxOccurs="unbounded"
-				type="CaseType">
+			<xs:element name="Case" minOccurs="1" maxOccurs="unbounded" type="CaseType">
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="Reference" type="xs:string"
-			use="required">
-		</xs:attribute>
-		<xs:attribute name="Name" type="NonEmptyString" use="required"></xs:attribute>
+		<xs:attribute name="Reference" type="xs:string" use="required"> </xs:attribute>
+		<xs:attribute name="Name" type="NonEmptyString" use="required"/>
 	</xs:complexType>
 
 	<xs:complexType name="DataElementType" abstract="true">
-		<xs:attributeGroup ref="DataElementProperties" />
-		<xs:attribute name="Flavor" type="NonEmptyString"></xs:attribute>
+		<xs:attributeGroup ref="DataElementProperties"/>
+		<xs:attribute name="Flavor" type="NonEmptyString"/>
 	</xs:complexType>
 
 	<xs:complexType name="FieldType">
 		<xs:complexContent>
 			<xs:extension base="DataElementType">
 				<xs:sequence>
-					<xs:element name="Predicate" type="PredicateType"
-						maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element name="Predicate" type="PredicateType" maxOccurs="1" minOccurs="0"/>
 					<xs:element name="ConformanceStatements" type="ConformanceStatementsType"
-						maxOccurs="1" minOccurs="0">
-					</xs:element>
-					<xs:element name="Structure" type="FieldStructureType"
-						maxOccurs="1" minOccurs="0">
-					</xs:element>
+						maxOccurs="1" minOccurs="0"> </xs:element>
+					<xs:element name="Structure" type="FieldStructureType" maxOccurs="1"
+						minOccurs="0"> </xs:element>
 
 				</xs:sequence>
-				<xs:attributeGroup ref="RepeatableProperties" />
-				<xs:attribute name="ItemNo" type="NonEmptyString" use="optional" />
+				<xs:attributeGroup ref="RepeatableProperties"/>
+				<xs:attribute name="ItemNo" type="NonEmptyString" use="optional"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
 
 	<xs:complexType name="SegmentType">
-	<xs:annotation>
+		<xs:annotation>
 			<xs:documentation>Documents the characteristics of a single HL7
 				segment within the context of a particular message or segment group.
 			</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Predicate" type="PredicateType"
-				maxOccurs="1" minOccurs="0">
-			</xs:element>
-			<xs:element name="ConformanceStatements" type="ConformanceStatementsType"
-				maxOccurs="1" minOccurs="0">
-			</xs:element>
-			<xs:element name="Structure" type="SegmentStructureType"
-				maxOccurs="1" minOccurs="1">
-			</xs:element>
+			<xs:element name="Predicate" type="PredicateType" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="ConformanceStatements" type="ConformanceStatementsType" maxOccurs="1"
+				minOccurs="0"> </xs:element>
+			<xs:element name="Structure" type="SegmentStructureType" maxOccurs="1" minOccurs="1"> </xs:element>
 
 
 		</xs:sequence>
-		<xs:attribute name="ID" type="NonEmptyString" use="required" />
-		<xs:attribute name="Usage" type="UsageType" use="required" />
-		<xs:attributeGroup ref="RepeatableProperties" />
-		<xs:attribute name="Name" type="xs:string" use="required"></xs:attribute>
-		<xs:attribute name="Description" type="xs:string"></xs:attribute>
+		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Usage" type="UsageType" use="required"/>
+		<xs:attributeGroup ref="RepeatableProperties"/>
+		<xs:attribute name="Name" type="xs:string" use="required"/>
+		<xs:attribute name="Description" type="xs:string"/>
 	</xs:complexType>
 
 	<xs:complexType name="GroupType">
@@ -247,38 +230,32 @@
 				group.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="Predicate" type="PredicateType"
-				maxOccurs="1" minOccurs="0">
-			</xs:element>
-			<xs:element name="ConformanceStatements" type="ConformanceStatementsType"
-				maxOccurs="1" minOccurs="0">
-			</xs:element>
-			<xs:element name="Structure" type="GroupStructureType"
-				maxOccurs="1" minOccurs="1">
+			<xs:element name="Predicate" type="PredicateType" maxOccurs="1" minOccurs="0"> </xs:element>
+			<xs:element name="ConformanceStatements" type="ConformanceStatementsType" maxOccurs="1"
+				minOccurs="0"> </xs:element>
+			<xs:element name="Structure" type="GroupStructureType" maxOccurs="1" minOccurs="1">
 			</xs:element>
 		</xs:sequence>
-		<xs:attribute name="ID" type="NonEmptyString" use="required" />
-		<xs:attribute name="Name" type="NonEmptyString" use="required" />
-		<xs:attribute name="Usage" type="UsageType" use="required" />
-		<xs:attributeGroup ref="RepeatableProperties" />
+		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Name" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Usage" type="UsageType" use="required"/>
+		<xs:attributeGroup ref="RepeatableProperties"/>
 	</xs:complexType>
 
 	<xs:complexType name="MessageType">
 		<xs:annotation>
-			<xs:documentation />
+			<xs:documentation/>
 		</xs:annotation>
 		<xs:choice minOccurs="1" maxOccurs="unbounded">
-			<xs:element name="Segment" type="SegmentType" minOccurs="1"
-				maxOccurs="1" />
-			<xs:element name="Group" type="GroupType" minOccurs="1"
-				maxOccurs="1" />
+			<xs:element name="Segment" type="SegmentType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Group" type="GroupType" minOccurs="1" maxOccurs="1"/>
 
-		</xs:choice>
-		<xs:attribute name="Name" type="NonEmptyString" use="optional" />
-		<xs:attribute name="Type" type="NonEmptyString" use="required" />
-		<xs:attribute name="Event" type="NonEmptyString" use="required" />
-		<xs:attribute name="StructID" type="MsgStructIDType"
-			use="required">
+		</xs:choice>
+
+		<xs:attribute name="Name" type="NonEmptyString" use="optional"/>
+		<xs:attribute name="Type" type="NonEmptyString" use="required"/>
+		<xs:attribute name="Event" type="NonEmptyString" use="required"/>
+		<xs:attribute name="StructID" type="MsgStructIDType" use="required">
 			<xs:annotation>
 				<xs:documentation>
 					The HL7 message structure code, as identified in
@@ -287,18 +264,18 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Description" type="NonEmptyString"
-			use="optional">
+		<xs:attribute name="Description" type="NonEmptyString" use="optional">
 			<xs:annotation>
 				<xs:documentation>
 					A description of the event carried by this message.
 				</xs:documentation>
 			</xs:annotation>
-		</xs:attribute>
+		</xs:attribute>
+
 	</xs:complexType>
 
 	<xs:complexType name="MetaDataType">
-				<xs:attribute name="Name" type="NonEmptyString" use="required">
+		<xs:attribute name="Name" type="NonEmptyString" use="required">
 			<xs:annotation>
 				<xs:documentation>Name of this profile ex) Z22 Message profile</xs:documentation>
 			</xs:annotation>
@@ -313,7 +290,7 @@
 				<xs:documentation>Version of this profile ex) 1.0.0</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="Date" type="NonEmptyString" use="prohibited">
+		<xs:attribute name="Date" type="NonEmptyString" use="required">
 			<xs:annotation>
 				<xs:documentation>Date of this profile ex) YYYYMMDD</xs:documentation>
 			</xs:annotation>
@@ -345,20 +322,17 @@
 
 	<xs:complexType name="ConformanceProfileType">
 		<xs:sequence>
-			<xs:element name="MetaData" type="MetaDataType"
-				minOccurs="0" maxOccurs="1" />
+			<xs:element name="MetaData" type="MetaDataType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Encodings" minOccurs="0" maxOccurs="1">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="Encoding" minOccurs="1"
-							maxOccurs="unbounded">
+						<xs:element name="Encoding" minOccurs="1" maxOccurs="unbounded">
 							<xs:simpleType>
 								<xs:union memberTypes="xs:NMTOKEN">
 									<xs:simpleType>
-										<xs:restriction
-											base="xs:NMTOKEN">
-											<xs:enumeration value="ER7" />
-											<xs:enumeration value="XML" />
+										<xs:restriction base="xs:NMTOKEN">
+											<xs:enumeration value="ER7"/>
+											<xs:enumeration value="XML"/>
 										</xs:restriction>
 									</xs:simpleType>
 								</xs:union>
@@ -367,12 +341,10 @@
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="Message" minOccurs="1" maxOccurs="1"
-				type="MessageType">
-			</xs:element>
-			<xs:element name="ValueSetReference" type="ValueSetReferenceType" minOccurs="0"></xs:element>
+			<xs:element name="Message" minOccurs="1" maxOccurs="1" type="MessageType"> </xs:element>
+			<xs:element name="ValueSetReference" type="ValueSetReferenceType" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="ID" type="NonEmptyString" use="optional" />
+		<xs:attribute name="ID" type="NonEmptyString" use="optional"/>
 		<xs:attribute name="Type" use="optional">
 			<xs:simpleType>
 				<xs:annotation>
@@ -389,26 +361,26 @@
 					</xs:documentation>
 				</xs:annotation>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="HL7" />
-					<xs:enumeration value="Constrainable" />
-					<xs:enumeration value="Implementation" />
+					<xs:enumeration value="HL7"/>
+					<xs:enumeration value="Constrainable"/>
+					<xs:enumeration value="Implementation"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
 		<xs:attribute name="HL7Version" use="optional">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="2.0" />
-					<xs:enumeration value="2.1" />
-					<xs:enumeration value="2.2" />
-					<xs:enumeration value="2.3" />
-					<xs:enumeration value="2.3.1" />
-					<xs:enumeration value="2.4" />
-					<xs:enumeration value="2.5" />
-					<xs:enumeration value="2.5.1" />
-					<xs:enumeration value="2.6" />
-					<xs:enumeration value="2.7" />
-					<xs:enumeration value="2.8" />
+					<xs:enumeration value="2.0"/>
+					<xs:enumeration value="2.1"/>
+					<xs:enumeration value="2.2"/>
+					<xs:enumeration value="2.3"/>
+					<xs:enumeration value="2.3.1"/>
+					<xs:enumeration value="2.4"/>
+					<xs:enumeration value="2.5"/>
+					<xs:enumeration value="2.5.1"/>
+					<xs:enumeration value="2.6"/>
+					<xs:enumeration value="2.7"/>
+					<xs:enumeration value="2.8"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
@@ -416,10 +388,10 @@
 		<xs:attribute name="SchemaVersion" use="optional">
 			<xs:simpleType>
 				<xs:restriction base="xs:string">
-					<xs:enumeration value="1.0" />
-					<xs:enumeration value="1.5" />
-					<xs:enumeration value="2.0" />
-					<xs:enumeration value="2.5" />
+					<xs:enumeration value="1.0"/>
+					<xs:enumeration value="1.5"/>
+					<xs:enumeration value="2.0"/>
+					<xs:enumeration value="2.5"/>
 				</xs:restriction>
 			</xs:simpleType>
 		</xs:attribute>
@@ -428,30 +400,26 @@
 	<xs:complexType name="SegmentStructureType">
 		<xs:sequence>
 			<xs:choice maxOccurs="unbounded" minOccurs="1">
-				<xs:element name="Field" type="FieldType" minOccurs="1"
-					maxOccurs="1">
-				</xs:element>
+				<xs:element name="Field" type="FieldType" minOccurs="1" maxOccurs="1"> </xs:element>
 				<xs:element name="DynamicField" type="DynamicMappingType" minOccurs="1"
-					maxOccurs="1"></xs:element>
+					maxOccurs="1"/>
 			</xs:choice>
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ConformanceStatementsType">
 		<xs:sequence>
-			<xs:element name="ConformanceStatement" type="ConformanceStatementType"
-				minOccurs="1" maxOccurs="unbounded"></xs:element>
+			<xs:element name="ConformanceStatement" type="ConformanceStatementType" minOccurs="1"
+				maxOccurs="unbounded"/>
 		</xs:sequence>
 	</xs:complexType>
 
 	<xs:complexType name="ConformanceStatementType">
 		<xs:sequence>
-			<xs:element name="Description" type="xs:string"
-				maxOccurs="1" minOccurs="1">
-			</xs:element>
-			<xs:element name="Assertion" type="AnyAssertionType" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Description" type="xs:string" maxOccurs="1" minOccurs="1"> </xs:element>
+			<xs:element name="Assertion" type="AnyAssertionType" maxOccurs="1" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="ID" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="ID" type="xs:string" use="required"/>
 	</xs:complexType>
 
 	<xs:complexType name="FieldStructureType">
@@ -459,11 +427,10 @@
 
 
 			<xs:choice maxOccurs="1" minOccurs="1">
-				<xs:element name="Component" type="ComponentType"
-					maxOccurs="unbounded" minOccurs="1"></xs:element>
-				<xs:element name="DynamicMapping" type="DynamicMappingType"
-					maxOccurs="1" minOccurs="1">
-				</xs:element>
+				<xs:element name="Component" type="ComponentType" maxOccurs="unbounded"
+					minOccurs="1"/>
+				<xs:element name="DynamicMapping" type="DynamicMappingType" maxOccurs="1"
+					minOccurs="1"> </xs:element>
 			</xs:choice>
 
 		</xs:sequence>
@@ -473,14 +440,11 @@
 		<xs:complexContent>
 			<xs:extension base="DataElementType">
 				<xs:sequence>
-					<xs:element name="Predicate" type="PredicateType"
-						maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element name="Predicate" type="PredicateType" maxOccurs="1" minOccurs="0"/>
 					<xs:element name="ConformanceStatements" type="ConformanceStatementsType"
-						maxOccurs="1" minOccurs="0">
-					</xs:element>
-					<xs:element name="Structure" type="ComponentStructureType"
-						maxOccurs="1" minOccurs="0">
-					</xs:element>
+						maxOccurs="1" minOccurs="0"> </xs:element>
+					<xs:element name="Structure" type="ComponentStructureType" maxOccurs="1"
+						minOccurs="0"> </xs:element>
 
 				</xs:sequence>
 			</xs:extension>
@@ -490,11 +454,10 @@
 	<xs:complexType name="ComponentStructureType">
 
 
-				<xs:sequence>
-					<xs:element name="SubComponent" type="SubComponentType"
-						maxOccurs="unbounded" minOccurs="1">
-					</xs:element>
-				</xs:sequence>
+		<xs:sequence>
+			<xs:element name="SubComponent" type="SubComponentType" maxOccurs="unbounded"
+				minOccurs="1"> </xs:element>
+		</xs:sequence>
 
 
 	</xs:complexType>
@@ -503,11 +466,9 @@
 		<xs:complexContent>
 			<xs:extension base="DataElementType">
 				<xs:sequence>
-					<xs:element name="Predicate" type="PredicateType"
-						maxOccurs="1" minOccurs="0"></xs:element>
+					<xs:element name="Predicate" type="PredicateType" maxOccurs="1" minOccurs="0"/>
 					<xs:element name="ConformanceStatements" type="ConformanceStatementsType"
-						maxOccurs="1" minOccurs="0">
-					</xs:element>
+						maxOccurs="1" minOccurs="0"> </xs:element>
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
@@ -515,64 +476,58 @@
 
 	<xs:complexType name="PredicateType">
 		<xs:sequence>
-			<xs:element name="Description" type="xs:string"
-				maxOccurs="1" minOccurs="1">
-			</xs:element>
-			<xs:element name="Condition" type="AnyAssertionType" maxOccurs="1" minOccurs="0"></xs:element>
+			<xs:element name="Description" type="xs:string" maxOccurs="1" minOccurs="1"> </xs:element>
+			<xs:element name="Condition" type="AnyAssertionType" maxOccurs="1" minOccurs="0"/>
 		</xs:sequence>
-		<xs:attribute name="TrueUsage" type="UsageType" use="required"></xs:attribute>
-		<xs:attribute name="FalseUsage" type="UsageType" use="required"></xs:attribute>
+		<xs:attribute name="TrueUsage" type="UsageType" use="required"/>
+		<xs:attribute name="FalseUsage" type="UsageType" use="required"/>
 	</xs:complexType>
 
 
 	<xs:complexType name="CaseType">
 		<xs:sequence>
-			<xs:element name="Field" type="FieldType" maxOccurs="1"
-				minOccurs="1">
-			</xs:element>
+			<xs:element name="Field" type="FieldType" maxOccurs="1" minOccurs="1"> </xs:element>
 		</xs:sequence>
-		<xs:attribute name="Value" type="xs:string" use="required"></xs:attribute>
+		<xs:attribute name="Value" type="xs:string" use="required"/>
 	</xs:complexType>
 
-    <xs:complexType name="GroupStructureType">
-    	<xs:choice minOccurs="1" maxOccurs="unbounded">
+	<xs:complexType name="GroupStructureType">
+		<xs:choice minOccurs="1" maxOccurs="unbounded">
 			<xs:element name="Segment" type="SegmentType" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Group" type="GroupType" minOccurs="1" maxOccurs="1"/>
 		</xs:choice>
-    </xs:complexType>
+	</xs:complexType>
 
-    <xs:complexType name="DynamicBinding">
-    	<xs:sequence>
-    		<xs:element name="Case" type="CaseBinding"></xs:element>
-    	</xs:sequence>
-    	<xs:attribute name="Reference" type="xs:string"
-    		use="required">
-    	</xs:attribute>
-    </xs:complexType>
-
-    <xs:complexType name="CaseBinding">
-    	<xs:sequence>
-    		<xs:element name="Binding" type="BindingType"></xs:element>
-    	</xs:sequence>
-    	<xs:attribute name="Value" type="xs:string" use="required"></xs:attribute>
-    </xs:complexType>
-
-    <xs:complexType name="BindingType">
-    	<xs:attribute name="Binding" type="NonEmptyString" use="required"></xs:attribute>
-    	<xs:attribute name="BindingStrength" type="BindingStrengthType"></xs:attribute>
-    	<xs:attribute name="BindingLocation" type="BindingLocationType"></xs:attribute>
-    </xs:complexType>
-
-    <xs:complexType name="AnyAssertionType">
+	<xs:complexType name="DynamicBinding">
 		<xs:sequence>
-    		<xs:any minOccurs="0"/>
-  		</xs:sequence>
-    </xs:complexType>
-    
+			<xs:element name="Case" type="CaseBinding"/>
+		</xs:sequence>
+		<xs:attribute name="Reference" type="xs:string" use="required"> </xs:attribute>
+	</xs:complexType>
 
-    <xs:complexType name="CoConstraintsType"></xs:complexType>
+	<xs:complexType name="CaseBinding">
+		<xs:sequence>
+			<xs:element name="Binding" type="BindingType"/>
+		</xs:sequence>
+		<xs:attribute name="Value" type="xs:string" use="required"/>
+	</xs:complexType>
 
-    <xs:complexType name="ValueSetReferenceType">
-    	<xs:attribute name="Reference" type="xs:string"></xs:attribute>
-    </xs:complexType>
+	<xs:complexType name="BindingType">
+		<xs:attribute name="Binding" type="NonEmptyString" use="required"/>
+		<xs:attribute name="BindingStrength" type="BindingStrengthType"/>
+		<xs:attribute name="BindingLocation" type="BindingLocationType"/>
+	</xs:complexType>
+
+	<xs:complexType name="AnyAssertionType">
+		<xs:sequence>
+			<xs:any minOccurs="0" processContents="skip"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<xs:complexType name="CoConstraintsType"/>
+
+	<xs:complexType name="ValueSetReferenceType">
+		<xs:attribute name="Reference" type="xs:string"/>
+	</xs:complexType>
 </xs:schema>
