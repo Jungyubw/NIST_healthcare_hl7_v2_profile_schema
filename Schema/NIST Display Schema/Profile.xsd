@@ -4,6 +4,7 @@
 	Computing - s.malick@prometheuscomputing.com ============================================================================================================= -->
 
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="ValueSets.xsd"/>
 
 	<!-- ============================================================================================================= 
 		========================= Root Element Definition ======================================= 
@@ -322,9 +323,10 @@
 
 	<xs:complexType name="ConformanceProfileType">
 		<xs:sequence>
-			<xs:element name="MetaData" type="MetaDataType" minOccurs="0" maxOccurs="1" />
-			<xs:element name="Message" minOccurs="1" maxOccurs="1" type="MessageType" />
-			<xs:element name="ValueSetReference" type="ValueSetReferenceType" minOccurs="0"></xs:element>
+			<xs:element name="MetaData" type="MetaDataType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="Message" minOccurs="1" maxOccurs="1" type="MessageType"/>
+			<xs:element name="ValueSetReference" type="ValueSetReferenceType" minOccurs="0"/>
+			<xs:element maxOccurs="unbounded" minOccurs="0" ref="ValueSetLibrary"/>
 		</xs:sequence>
 		<xs:attribute name="ID" type="NonEmptyString" use="optional"/>
 		<xs:attribute name="Type" use="optional">
