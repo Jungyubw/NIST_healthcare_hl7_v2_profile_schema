@@ -123,7 +123,7 @@
 	<xs:complexType name="PlainTextType">
 		<xs:attribute name="Path" type="PathType" use="required" />
 		<xs:attribute name="Text" type="NonEmptyString" use="required" />
-		<xs:attribute name="IgnoreCase" type="xs:boolean" use="required" />
+		<xs:attribute name="IgnoreCase" type="xs:boolean" use="optional" />
 		<xs:attribute name="AtLeastOnce" type="xs:boolean" use="optional" />
 	</xs:complexType>
 	
@@ -142,8 +142,8 @@
 	
 	<xs:complexType name="StringListType">
 		<xs:attribute name="Path" type="PathType" use="required" />
-		<xs:attribute name="CSV" type="CommaSeparatedStringType"
-			use="required" />
+		<xs:attribute name="CSV" type="CommaSeparatedStringType" use="required" />
+		<xs:attribute name="IgnoreCase" type="xs:boolean" use="optional" />
 		<xs:attribute name="AtLeastOnce" type="xs:boolean" use="optional" />
 	</xs:complexType>
 	

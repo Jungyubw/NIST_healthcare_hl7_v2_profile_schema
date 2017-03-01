@@ -157,6 +157,26 @@
 			<xs:element name="ByID" type="ByIDContexType"  minOccurs="1" maxOccurs="1"/>
 		</xs:choice>
 	</xs:complexType>
+
+	<xs:complexType name="ContextTypeOrderIndifferent">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="Pattern" type="PatternType"  minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Constraints" type="OrderIndifferentConstraintsType"  minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="PatternType">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="Trigger" type="TriggerType" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="OrderIndifferentConstraintsType">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="Constraint" type="ConstraintType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	
 	<xs:complexType name="ContextTypeCoConstraint">
 		<xs:choice minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="ByID" type="ByIDContexTypeCoConstraint"  minOccurs="1" maxOccurs="1"/>
@@ -181,6 +201,12 @@
 			<xs:element name="CoConstraint" type="CoConstraintType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
+	</xs:complexType>
+	
+	<xs:complexType name="OrderIndifferentType">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="Context" type="ContextTypeOrderIndifferent" minOccurs="0" maxOccurs="unbounded" />
+		</xs:sequence>
 	</xs:complexType>
 	
 	<xs:complexType name="CoConstraintsType">
@@ -341,6 +367,7 @@
 			<xs:element name="MetaData" type="MetaDataType" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Predicates" type="PredicatesType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Constraints" type="ConstraintsType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="OrderIndifferent" type="OrderIndifferentType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="CoConstraints" type="CoConstraintsType" minOccurs="0" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="UUID" type="NonEmptyString" use="required"/>

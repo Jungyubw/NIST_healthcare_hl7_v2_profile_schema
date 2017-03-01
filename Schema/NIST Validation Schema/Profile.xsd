@@ -196,7 +196,7 @@
 		    =========================         Complex Types Definitions           =======================================
 		    ============================================================================================================= -->
 	
-	<xs:complexType name="DymanicMappingType">
+	<xs:complexType name="DynamicMappingType">
 		<xs:sequence>
 			<xs:element name="Mapping" minOccurs="1" maxOccurs="unbounded">
 				<xs:complexType>
@@ -248,7 +248,7 @@
 			<xs:documentation>Documents the characteristics of a single HL7 segment within the context of a particular message or segment group.</xs:documentation>
 		</xs:annotation>
 		<xs:sequence>
-			<xs:element name="DynamicMapping" type="DymanicMappingType" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DynamicMapping" type="DynamicMappingType" minOccurs="0" maxOccurs="1"/>
 			<xs:element name="Field" type="FieldType" minOccurs="0" maxOccurs="unbounded"/>
 		</xs:sequence>
 		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
