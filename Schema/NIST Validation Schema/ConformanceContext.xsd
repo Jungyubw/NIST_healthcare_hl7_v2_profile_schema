@@ -109,7 +109,7 @@
 	<xs:complexType name="ConstraintType">
 		<xs:sequence>
 			<xs:element name="Reference" type="ReferenceType" minOccurs="0" maxOccurs="1"/>
-			<xs:element name="Description" type="NonEmptyString" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Description" type="xs:string" minOccurs="1" maxOccurs="1"/>
 			<xs:element name="Assertion" type="AssertionType" minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 		<xs:attribute name="ID" type="NonEmptyString" use="required"/>
@@ -161,13 +161,29 @@
 	<xs:complexType name="ContextTypeOrderIndifferent">
 		<xs:sequence minOccurs="0" maxOccurs="unbounded">
 			<xs:element name="Pattern" type="PatternType"  minOccurs="1" maxOccurs="1"/>
-			<xs:element name="Constraints" type="OrderIndifferentConstraintsType"  minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
+		<xs:attribute name="List" type="PathType" use="required"/>
 	</xs:complexType>
 	
 	<xs:complexType name="PatternType">
 		<xs:sequence minOccurs="1" maxOccurs="1">
 			<xs:element name="Trigger" type="TriggerType" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Constraints" type="OrderIndifferentConstraintsType"  minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Contexts" type="ContextsType"  minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+		<xs:attribute name="Cardinality" type="xs:int" use="optional"/>
+	</xs:complexType>
+	
+	<xs:complexType name="ContextsType">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="Context" type="ContextTypeOrderIndifferent"  minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="TriggerType">
+		<xs:sequence minOccurs="1" maxOccurs="1">
+			<xs:element name="ErrorMessage" type="xs:string"  minOccurs="1" maxOccurs="1"/>
+			<xs:element name="Assertion" type="AssertionType"  minOccurs="1" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	
