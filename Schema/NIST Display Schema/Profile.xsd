@@ -53,13 +53,13 @@
 				</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="MinLength" type="xs:integer" use="required">
+		<xs:attribute name="MinLength" type="IntegerOrNA" use="required">
 			<xs:annotation>
 				<xs:documentation>Identifies the minimum allowed length for the
 					content of the element.</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="MaxLength" type="IntegerOrStar" use="optional" default="*">
+		<xs:attribute name="MaxLength" type="IntegerNAOrStar" use="optional" default="*">
 			<xs:annotation>
 				<xs:documentation>Identifies the maximum allowed length for the
 					content of the element.</xs:documentation>
@@ -89,6 +89,18 @@
 	<xs:simpleType name="IntegerOrStar">
 		<xs:restriction base="xs:string">
 			<xs:pattern value="\d+|\*"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IntegerOrNA">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d+|NA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="IntegerNAOrStar">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\d+|\*|NA"/>
 		</xs:restriction>
 	</xs:simpleType>
 
