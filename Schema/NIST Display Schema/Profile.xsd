@@ -190,6 +190,7 @@
 			</xs:element>
 		</xs:sequence>
 		<xs:attribute name="Reference" type="xs:string" use="required"> </xs:attribute>
+		<xs:attribute name="SecondReference" type="xs:string"> </xs:attribute>
 		<xs:attribute name="Name" type="NonEmptyString" use="required"/>
 	</xs:complexType>
 
@@ -487,6 +488,7 @@
 			<xs:element name="Field" type="FieldType" maxOccurs="1" minOccurs="1"> </xs:element>
 		</xs:sequence>
 		<xs:attribute name="Value" type="xs:string" use="required"/>
+		<xs:attribute name="SecondValue" type="xs:string"/>
 	</xs:complexType>
 
 	<xs:complexType name="GroupStructureType">
