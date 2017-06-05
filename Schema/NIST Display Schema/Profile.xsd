@@ -134,7 +134,7 @@
 
 	<xs:simpleType name="ConfLengthType">
 		<xs:restriction base="NonEmptyString">
-			<xs:pattern value="\d*[#=]{0,1}"/>
+			<xs:pattern value="\d*[#=]{0,1}|NA"/>
 		</xs:restriction>
 	</xs:simpleType>
 
