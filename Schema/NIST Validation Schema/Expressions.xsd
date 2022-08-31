@@ -321,4 +321,12 @@
 		</xs:choice>
 	</xs:group>
 	
+	
+	<xs:simpleType name="ConstraintStrengthType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SHALL" />
+			<xs:enumeration value="SHOULD" />
+		</xs:restriction>
+	</xs:simpleType>
+	
 </xs:schema>
