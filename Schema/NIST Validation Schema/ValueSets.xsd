@@ -58,7 +58,8 @@
 					</xs:complexType>
 				</xs:element>
 			</xs:sequence>
-			<xs:attribute name="ValueSetLibraryIdentifier" type="xs:string" use="required"/>
+			<xs:attribute name="ValueSetLibraryIdentifier" type="xs:string" use="optional"/>
+			<xs:attribute name="ID" type="NonEmptyString" use="optional"/>
 		</xs:complexType>
 	</xs:element>
 	<xs:simpleType name="StabilityType">
